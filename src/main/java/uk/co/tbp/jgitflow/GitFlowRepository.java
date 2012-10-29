@@ -19,7 +19,7 @@ public class GitFlowRepository {
     private final Git git;
     private final static String GIT_FLOW = "gitflow";
 
-    public GitFlowRepository(FileRepository repository) throws GitFlowException, GitAPIException{
+    public GitFlowRepository(FileRepository repository) throws GitFlowException, GitAPIException {
         git = new Git(repository);
 
         String masterBranchName = getMasterBranchName();
@@ -89,19 +89,19 @@ public class GitFlowRepository {
         try {
             status = git.status().call();
             return repositoryState.canCheckout()
-                && repositoryState.canCommit()
-                && repositoryState.canResetHead()
-                && status.getRemoved().isEmpty()
-                && status.getAdded().isEmpty()
-                && status.getChanged().isEmpty()
-                && status.getModified().isEmpty()
-                && status.getMissing().isEmpty();
+                    && repositoryState.canCommit()
+                    && repositoryState.canResetHead()
+                    && status.getRemoved().isEmpty()
+                    && status.getAdded().isEmpty()
+                    && status.getChanged().isEmpty()
+                    && status.getModified().isEmpty()
+                    && status.getMissing().isEmpty();
         } catch (GitAPIException ex) {
             throw new GitFlowException(ex);
         } catch (NoWorkTreeException ex) {
             throw new GitFlowException(ex);
         }
-        
+
     }
 
     public void checkoutDevelop() throws GitAPIException {
@@ -111,8 +111,8 @@ public class GitFlowRepository {
     public List<String> getReleaseBranchNames() throws GitAPIException {
         List<String> releaseBranchNames = new ArrayList<String>();
         for (Ref nextRef : git.branchList().call()) {
-            System.out.println(nextRef.getName()+":"+getReleasePrefix());
-            if (nextRef.getName().startsWith("refs/heads/"+getReleasePrefix())) {
+            System.out.println(nextRef.getName() + ":" + getReleasePrefix());
+            if (nextRef.getName().startsWith("refs/heads/" + getReleasePrefix())) {
                 releaseBranchNames.add(nextRef.getName());
                 System.out.println("here");
             }
