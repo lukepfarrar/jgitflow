@@ -119,4 +119,12 @@ public class GitFlowRepository {
         }
         return releaseBranchNames;
     }
+
+    public boolean isOnMaster() throws IOException {
+        return getMasterBranchName().equals(git.getRepository().getBranch());
+    }
+
+    public boolean isOnDevelop() throws IOException {
+        return getDevelopBranchName().equals(git.getRepository().getBranch());
+    }
 }
