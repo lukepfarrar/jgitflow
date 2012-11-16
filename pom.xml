@@ -3,6 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <licenses>
+        <license>
+            <name>GNU General Public License (GPL)</name>
+            <url>http://www.gnu.org/licenses/gpl.html</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Luke Farrar</name>
+            <email>lukepfarrar@gmail.com</email>            
+        </developer>
+    </developers>
+
     <groupId>uk.co.tbp</groupId>
     <artifactId>jgitflow</artifactId>
     <version>0.1-SNAPSHOT</version>
