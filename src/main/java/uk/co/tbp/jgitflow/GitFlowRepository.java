@@ -83,7 +83,7 @@ public class GitFlowRepository {
         }
     }
 
-    public boolean ready() throws GitFlowException {
+    public boolean hasConsistentState() throws GitFlowException {
         RepositoryState repositoryState = git.getRepository().getRepositoryState();
         Status status;
         try {
