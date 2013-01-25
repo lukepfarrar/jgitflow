@@ -1,4 +1,4 @@
-package uk.co.tbp.jgitflow;
+package uk.co.theboo.jgitflow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,11 +43,11 @@ public class GitFlowRepository {
         return getPrefix("release");
     }
 
-    public String getDevelopBranchName() {
+    final public String getDevelopBranchName() {
         return getBranchName("develop");
     }
 
-    public String getMasterBranchName() {
+    final public String getMasterBranchName() {
         return getBranchName("master");
     }
 

@@ -1,5 +1,5 @@
 
-package uk.co.tbp.jgitflow;
+package uk.co.theboo.jgitflow;
 
 public class GitFlowException extends Exception {
 

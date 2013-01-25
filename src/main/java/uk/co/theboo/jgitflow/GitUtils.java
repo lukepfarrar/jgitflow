@@ -1,4 +1,4 @@
-package uk.co.tbp.jgitflow;
+package uk.co.theboo.jgitflow;
 
 import java.io.IOException;
 import org.eclipse.jgit.api.Git;
@@ -25,7 +25,7 @@ public class GitUtils {
         FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
         repositoryBuilder.findGitDir();
         if (repositoryBuilder.getGitDir() == null) {            
-            throw new GitFlowException("Not a git repository");
+            throw new GitFlowException("Not in a git repository.");
         }
         return repositoryBuilder.build();
     }
