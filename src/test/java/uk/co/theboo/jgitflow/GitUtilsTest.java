@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package uk.co.theboo.jgitflow;
 
 import java.io.IOException;
@@ -10,10 +7,7 @@ import org.eclipse.jgit.storage.file.FileRepository;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Luke Farrar <lfarrar@thebookpeople.co.uk>
- */
+
 public class GitUtilsTest {
 
     public GitUtilsTest() {

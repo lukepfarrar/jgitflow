@@ -17,8 +17,9 @@ import org.eclipse.jgit.storage.file.FileRepository;
 public class GitFlowRepository {
 
     private final Git git;
-    private final static String GIT_FLOW = "gitflow";
-
+    private final String GIT_FLOW = "gitflow";
+    private final String REFS_HEADS_PREFIX = "refs/heads/";
+    
     public GitFlowRepository(FileRepository repository) throws GitFlowException, GitAPIException {
         git = new Git(repository);
 
@@ -109,12 +110,11 @@ public class GitFlowRepository {
     }
 
     public List<String> getReleaseBranchNames() throws GitAPIException {
+        
         List<String> releaseBranchNames = new ArrayList<String>();
         for (Ref nextRef : git.branchList().call()) {
-            System.out.println(nextRef.getName() + ":" + getReleasePrefix());
-            if (nextRef.getName().startsWith("refs/heads/" + getReleasePrefix())) {
-                releaseBranchNames.add(nextRef.getName());
-                System.out.println("here");
+            if (nextRef.getName().startsWith(REFS_HEADS_PREFIX+getReleasePrefix())) {                
+                releaseBranchNames.add(nextRef.getName().replaceFirst(REFS_HEADS_PREFIX, ""));
             }
         }
         return releaseBranchNames;
