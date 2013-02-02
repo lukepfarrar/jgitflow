@@ -20,13 +20,13 @@ public class GitFlowRepository {
     private final String GIT_FLOW = "gitflow";
     private final String REFS_HEADS_PREFIX = "refs/heads/";
     
-    public GitFlowRepository(FileRepository repository) throws GitFlowException, GitAPIException {
+    public GitFlowRepository(FileRepository repository) throws NotGitFlowRepositoryException, GitAPIException {
         git = new Git(repository);
 
         String masterBranchName = getMasterBranchName();
 
         if (masterBranchName == null || !GitUtils.branchExists(git, masterBranchName)) {
-            throw new GitFlowException("Not initialized for gitflow.");
+            throw new NotGitFlowRepositoryException("Not initialized for gitflow.");
         }
 
     }
