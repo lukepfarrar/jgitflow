@@ -26,9 +26,8 @@ public class GitFlowRepository {
         String masterBranchName = getMasterBranchName();
 
         if (masterBranchName == null || !GitUtils.branchExists(git, masterBranchName)) {
-            throw new NotGitFlowRepositoryException("Not initialized for gitflow.");
+            throw new NotGitFlowRepositoryException();
         }
-
     }
 
     private String getPrefix(final String configKey) {
@@ -102,15 +101,13 @@ public class GitFlowRepository {
         } catch (NoWorkTreeException ex) {
             throw new GitFlowException(ex);
         }
-
     }
 
     public void checkoutDevelop() throws GitAPIException {
         git.checkout().setName(getDevelopBranchName()).call();
     }
 
-    public List<String> getReleaseBranchNames() throws GitAPIException {
-        
+    public List<String> getReleaseBranchNames() throws GitAPIException {        
         List<String> releaseBranchNames = new ArrayList<String>();
         for (Ref nextRef : git.branchList().call()) {
             if (nextRef.getName().startsWith(REFS_HEADS_PREFIX+getReleasePrefix())) {                
