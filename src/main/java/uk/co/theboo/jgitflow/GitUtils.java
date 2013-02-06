@@ -1,6 +1,7 @@
 package uk.co.theboo.jgitflow;
 
 import java.io.IOException;
+import org.apache.commons.lang.Validate;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
@@ -10,9 +11,8 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 public class GitUtils {
 
     public static boolean branchExists(Git git, final String branchName) throws GitAPIException {
-        if (branchName == null) {
-            return false;
-        }
+        Validate.notNull(git, "git param cannot be null.");
+        Validate.notNull(branchName, "branchName cannot be null.");
         for (Ref nextRef : git.branchList().call()) {
             if (nextRef.getName().equals("refs/heads/" + branchName)) {
                 return true;
