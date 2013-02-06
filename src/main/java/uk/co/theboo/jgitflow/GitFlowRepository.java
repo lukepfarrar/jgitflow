@@ -73,7 +73,7 @@ public class GitFlowRepository {
 
     public void createReleaseBranch(String releaseVersion) throws GitFlowException {
         try {
-            ObjectId developHeadObjectId = git.getRepository().getRef("refs/heads/" + getDevelopBranchName()).getObjectId();
+            ObjectId developHeadObjectId = git.getRepository().getRef(REFS_HEADS_PREFIX + getDevelopBranchName()).getObjectId();
             RevWalk walk = new RevWalk(git.getRepository());
             git.branchCreate().setStartPoint(walk.parseCommit(developHeadObjectId)).setName(getReleasePrefix() + releaseVersion).call();
         } catch (GitAPIException ex) {
