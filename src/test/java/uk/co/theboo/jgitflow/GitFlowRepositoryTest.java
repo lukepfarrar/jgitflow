@@ -3,14 +3,14 @@ package uk.co.theboo.jgitflow;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import org.eclipse.jgit.api.Git;
 import org.apache.commons.io.FileUtils;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class GitFlowRepositoryTest {
 
@@ -41,9 +41,9 @@ public class GitFlowRepositoryTest {
     /**
      * Test of getReleasePrefix method, of class GitFlowRepository.
      */
-    @Test(expected=GitFlowException.class)
+    @Test(expected = GitFlowException.class)
     public void testGitFlowRepository() throws IOException, GitFlowException, GitAPIException {
-       new GitFlowRepository(new FileRepositoryBuilder().setWorkTree(tmpDir).build());
+        new GitFlowRepository(new FileRepositoryBuilder().setWorkTree(tmpDir).build());
     }
 
     @Test
@@ -51,57 +51,29 @@ public class GitFlowRepositoryTest {
         assertEquals("release/", gitFlowInstance.getReleasePrefix());
     }
 
-    /**
-     * Test of getDevelopBranchName method, of class GitFlowRepository.
-     */
+    @Test
     public void testGetDevelopBranchName() {
         assertEquals("develop", gitFlowInstance.getDevelopBranchName());
     }
 
-    /**
-     * Test of getMasterBranchName method, of class GitFlowRepository.
-     */
+    @Test
     public void testGetMasterBranchName() {
-       assertEquals("master", gitFlowInstance.getMasterBranchName());
+        assertEquals("master", gitFlowInstance.getMasterBranchName());
     }
 
-    /**
-     * Test of getHotfixPrefix method, of class GitFlowRepository.
-     */
+    @Test
     public void testGetHotfixPrefix() {
-        System.out.println("getHotfixPrefix");
-        GitFlowRepository instance = null;
-        String expResult = "";
-        String result = instance.getHotfixPrefix();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("hotfix/", gitFlowInstance.getHotfixPrefix());
     }
 
-    /**
-     * Test of getFeaturePrefix method, of class GitFlowRepository.
-     */
+    @Test
     public void testGetFeaturePrefix() {
-        System.out.println("getFeaturePrefix");
-        GitFlowRepository instance = null;
-        String expResult = "";
-        String result = instance.getFeaturePrefix();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("feature/", gitFlowInstance.getFeaturePrefix());
     }
 
-    /**
-     * Test of getSupportPrefix method, of class GitFlowRepository.
-     */
+    @Test
     public void testGetSupportPrefix() {
-        System.out.println("getSupportPrefix");
-        GitFlowRepository instance = null;
-        String expResult = "";
-        String result = instance.getSupportPrefix();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("support/", gitFlowInstance.getSupportPrefix());
     }
 
     /**
