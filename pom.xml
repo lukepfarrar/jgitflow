@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <licenses>
-        <license>
-            <name>GNU General Public License (GPL)</name>
-            <url>http://www.gnu.org/licenses/gpl.html</url>
-        </license>
+    	<license>
+	    <name>GNU General Public License v3</name>
+	    <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+	</license>
     </licenses>
     <developers>
         <developer>
@@ -17,17 +17,21 @@
 
     <groupId>uk.co.theboo</groupId>
     <artifactId>jgitflow</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
     <packaging>jar</packaging>
 
     <name>jgitflow</name>
-
+    <description>A Java library implementing part of the git-flow branching model.</description>
+    <url>https://github.com/lukepfarrar/gitflow-maven-plugin</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mavenVersion>3.0</mavenVersion>
     </properties>
-
-
+    <scm>
+	<connection>scm:git:git@github.com:lukepfarrar/jgitflow.git</connection>
+	<url>scm:git:git@github.com:lukepfarrar/jgitflow.git</url>
+	<developerConnection>scm:git:git@github.com:lukepfarrar/jgitflow.git</developerConnection>
+  </scm>
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
@@ -61,6 +65,12 @@
             <artifactId>commons-io</artifactId>
             <version>2.1</version>
             <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.4</version>
             <type>jar</type>
         </dependency>
     </dependencies>
