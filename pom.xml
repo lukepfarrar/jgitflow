@@ -17,7 +17,7 @@
 
     <groupId>uk.co.theboo</groupId>
     <artifactId>jgitflow</artifactId>
-    <version>0.4-SNAPSHOT</version>
+    <version>0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jgitflow</name>
